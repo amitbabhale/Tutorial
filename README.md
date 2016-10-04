@@ -1,3 +1,3 @@
-# comment-service
+# note-service
 
-This is a microservice for creating, reading, updating, and deleting comments.
+This is a microservice for creating, reading, updating, and deleting note.
