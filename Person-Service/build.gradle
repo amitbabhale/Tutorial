@@ -12,6 +12,7 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
 jar {
@@ -28,7 +29,13 @@ repositories {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	runtime('org.hsqldb:hsqldb')
+	compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    runtime('org.hsqldb:hsqldb')
+	compile("org.springframework.boot:spring-boot-starter-hateoas")
+    testCompile("com.jayway.jsonpath:json-path")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	// https://mvnrepository.com/artifact/com.jayway.restassured/rest-assured
+	testCompile group: 'com.jayway.restassured', name: 'rest-assured', version: '2.4.1'
+	
 }
