@@ -2,6 +2,7 @@ package com.tut.zycus.client;
 
 import javax.validation.constraints.NotNull;
 
+
 public class Order {
 
 	@NotNull
@@ -36,8 +37,7 @@ public class Order {
 	public void setPersonId(String personId) {
 		this.personId = personId;
 	}
-	
-	
+		
 //	
 		
 }
