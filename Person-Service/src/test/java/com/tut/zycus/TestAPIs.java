@@ -2,6 +2,9 @@ package com.tut.zycus;
 
 import static com.jayway.restassured.RestAssured.given;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -66,7 +69,7 @@ public class TestAPIs {
 			post("/persons/person").
 		then().
 			log().all().
-			statusCode(200);
+			statusCode(201);
 	}
 	
 	
@@ -157,7 +160,13 @@ public class TestAPIs {
 	
 	public Order createOrder(){
 		Order order =  new Order();
-		order.setOrderItem("Order1");
+		/*List<String> orderItems= new ArrayList<String>();
+		orderItems.add("A");
+		orderItems.add("B");
+		orderItems.add("C");
+		
+		order.setOrderItem(orderItems);*/
+		order.setOrderItem("A");
 		return order;
 	}
 	
