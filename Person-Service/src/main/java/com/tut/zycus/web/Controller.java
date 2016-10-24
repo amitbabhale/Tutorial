@@ -19,7 +19,8 @@ import com.tut.zycus.domain.PersonService;
 
 /**
  * @author amit
- *
+ * Exception Handling remaining
+ * Generating hateoas links for resources
  */
 @RestController
 public class Controller {
@@ -48,7 +49,7 @@ public class Controller {
 			produces={	MEDIA_TYPE_PERSON_JSON_VALUE},
 			method=RequestMethod.GET)
 	public ResponseEntity<Person> getPerson(@PathVariable(value="personid") final String personID) {
-		Person rep = service.getPerson(personID);
+		Person rep = service.getPerson(personID);		
 		ResponseEntity<Person> entity =   new ResponseEntity<Person>(rep,null, HttpStatus.OK);	;
 		return entity;		
 
@@ -61,8 +62,7 @@ public class Controller {
 	public ResponseEntity<Order> placeOrderForPerson(@PathVariable(value="personid") final String personID, @RequestBody Order order) {
 		Order rep = service.saveOrder(personID, order);
 		ResponseEntity<Order> entity =   new ResponseEntity<Order>(rep,null, HttpStatus.CREATED);	;
-		return entity;		
-
+		return entity;
 	}
 	
 	
