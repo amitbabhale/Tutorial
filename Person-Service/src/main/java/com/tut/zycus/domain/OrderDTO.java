@@ -2,19 +2,16 @@ package com.tut.zycus.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="ORDER")
+@Table(name="ORDER_DETAIL")
 public class OrderDTO {
 	
 	@Id
@@ -23,8 +20,6 @@ public class OrderDTO {
 	@Column(name = "order_id")	
 	private String orderid;	
 	
-	@NotNull
-	@Size(max=100)
 	private String orderItem;
 	
 	public String getOrderid() {
@@ -34,7 +29,7 @@ public class OrderDTO {
 	public void setOrderid(String orderid) {
 		this.orderid = orderid;
 	}
-
+	
 	public String getOrderItem() {
 		return orderItem;
 	}
@@ -42,17 +37,17 @@ public class OrderDTO {
 	public void setOrderItem(String orderItem) {
 		this.orderItem = orderItem;
 	}
+	
+	@OneToOne
+	@JoinColumn(name = "person_id")
+	private PersonDTO personDto;
 
-	public PersonDTO getPerson() {
-		return person;
+	public PersonDTO getPersonDto() {
+		return personDto;
 	}
 
-	public void setPerson(PersonDTO person) {
-		this.person = person;
+	public void setPersonDto(PersonDTO personDto) {
+		this.personDto = personDto;
 	}
-
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="personid")
-	PersonDTO person;
 
 }

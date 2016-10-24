@@ -4,7 +4,6 @@
 package com.tut.zycus.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.jaxb.SpringDataJaxb.OrderDto;
 import org.springframework.stereotype.Service;
 
 import com.tut.zycus.client.Order;
@@ -42,7 +41,7 @@ public class PersonService {
 		PersonDTO personDto = Mapper.apply(person);
 		
 		OrderDTO orderDto = Mapper.toOrderModel(order);
-		orderDto.setPerson(personDto);
+		orderDto.setPersonDto(personDto);
 		OrderDTO result = orderRepository.save(orderDto);
 				
 		return Mapper.toViewOrder(result);		
