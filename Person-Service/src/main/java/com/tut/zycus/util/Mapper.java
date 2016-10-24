@@ -26,7 +26,7 @@ public class Mapper {
 		person.setName(personDto.getName());
 		person.setPincode(personDto.getPincode());
 		person.setAddress(addressToView(personDto.getAddress()));
-		
+		person.setState(personDto.getState());
 		return person;
 		
 	}
@@ -65,7 +65,10 @@ public class Mapper {
 	public static OrderDTO toOrderModel(Order order) {
 		
 		OrderDTO orderDto = new OrderDTO();
-		orderDto.setOrderItem(order.getOrderItem());		
+		/*if(order.getOrderItem()!=null && order.getOrderItem().size()>0){
+			orderDto.setOrderItem(order.getOrderItem());		
+		}*/
+		orderDto.setOrderItem(order.getOrderItem());
 		return orderDto;
 	}
 
@@ -73,7 +76,7 @@ public class Mapper {
 		Order order =new Order();
 		order.setOrderid(dto.getOrderid());
 		order.setOrderItem(dto.getOrderItem());
-		order.setPersonId(dto.getPerson().getPersonid());
+		order.setPersonId(dto.getPersonDto().getPersonid());
 		return order;
 	}
 	
